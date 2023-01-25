@@ -1,0 +1,43 @@
+<div class="card my-5">
+	<div class="card-body">
+  
+	  <form #memberForm="ngForm" (ngSubmit)="saveMember(memberForm)">
+	  
+		  <div class="form-group">
+			  <label for="fN">First name:</label>
+			  <input [(ngModel)]="member.firstName" id="fN" name="fN" class="form-control mb-4" type="text" required #fNm="ngModel">
+			  <div *ngIf="fNm.errors" class ="alert alert-danger">required</div>
+		  </div>
+  
+		  <div class="form-group">
+			  <label for="lN">Last name:</label>
+			  <input [(ngModel)]="member.lastName" id="lN" name="lN" class="form-control mb-4" type="text" required minlength="2" #lNm="ngModel">
+			  
+			  <div *ngIf="lNm.hasError('required')" class ="alert alert-danger">required</div>
+			  <div *ngIf="lNm.hasError('minlength') && (lNm.touched || lNm.dirty)" class ="alert alert-danger">must contain at least 2 characters</div>
+			  
+  
+		  </div>
+  
+		  <div class="form-group">
+			  <label for="email">email:</label>
+			  <input [(ngModel)]="member.email" id="email" name="email" class="form-control mb-4" type="text" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" #em="ngModel">
+			 </div>
+		  
+			 <div *ngIf="em.hasError('required')" class ="alert alert-danger">required</div>
+			 <div *ngIf="em.hasError('pattern') &&(em.touched || em.dirty)" class ="alert alert-danger">
+			   invalid email
+			 </div>  
+  
+  
+		  <button type="submit" class="btn btn-primary col-2">Save</button>
+					
+	  </form>
+  
+	  <br><br>
+	  
+	  <a [routerLink]="['/member-list']">back to list</a>
+	</div>
+  </div>
+
+

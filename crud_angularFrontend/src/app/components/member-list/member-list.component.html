@@ -1,0 +1,25 @@
+
+<table class="table table-light table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>email</th>
+
+            <th>action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let mem of members">
+            <td>{{mem.firstName}}</td>
+            <td>{{mem.lastName}}</td>
+            <td>{{mem.email}}</td>
+
+            <td>
+                <!--    routerLink pokazuje na /login sad, ne vise /update-member   -->
+                <button class="btn btn-primary btn-sm me-1" [routerLink]="['/login',mem.id]">log in to update</button>
+                <button class="btn btn-danger btn-sm" (click)="deleteMember(mem.id)">delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
