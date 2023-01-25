@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { UpdateMemberComponent } from './components/update-member/update-member.component';
 import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { AuthenticationService } from './service/authentication.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { LogoutComponent } from './components/logout/logout.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [MemberService],
+  providers: [MemberService, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

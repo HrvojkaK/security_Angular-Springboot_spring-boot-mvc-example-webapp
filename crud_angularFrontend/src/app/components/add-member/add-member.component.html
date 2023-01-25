@@ -15,9 +15,13 @@
 			  
 			  <div *ngIf="lNm.hasError('required')" class ="alert alert-danger">required</div>
 			  <div *ngIf="lNm.hasError('minlength') && (lNm.touched || lNm.dirty)" class ="alert alert-danger">must contain at least 2 characters</div>
-			  
-  
 		  </div>
+
+		  <div class="form-group">
+			<label for="password">Password:</label>
+			<input [(ngModel)]="member.password" id="password" name="password" class="form-control mb-4" type="text" required #password="ngModel">
+			<div *ngIf="password.errors" class ="alert alert-danger">required</div>
+		</div>
   
 		  <div class="form-group">
 			  <label for="email">email:</label>

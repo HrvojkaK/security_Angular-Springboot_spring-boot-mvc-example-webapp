@@ -51,5 +51,30 @@ public class MemberServiceImpl implements MemberService {
 		memberRepository.deleteById(theId);
 	}
 
+
+	//**
+	@Override
+	public String checkPassword(int theId, String pass) {
+		String checkRes="";
+		Optional<Member> result = memberRepository.findById(theId);
+
+		Member theMember = null;
+
+		if (result.isPresent()) {
+			theMember = result.get();
+
+			if (theMember.getPassword().equals(pass)){ checkRes="correct";}
+
+		}
+		else {
+			//memb wasn't found
+			throw new RuntimeException("Did not find member id - " + theId);
+		}
+
+		//if ()
+		return checkRes;
+	}
+
+
 }
 

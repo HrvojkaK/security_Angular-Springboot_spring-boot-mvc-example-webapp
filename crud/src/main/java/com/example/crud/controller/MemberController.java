@@ -54,6 +54,17 @@ public class MemberController {
 		memberService.deleteById(theId);
 	}
 
+
+	//**
+	@GetMapping("/checkPassword/{concat}")
+	public ResponseEntity<String> checkPassword(@PathVariable String concat) {
+		String[] parts = concat.split("_");
+		String part1 = parts[0]; // id, but string
+		int id=Integer.parseInt(part1);
+		String pass = parts[1]; // password
+		return ResponseEntity.ok(memberService.checkPassword(id,pass));
+	}
+
 	
 	
 

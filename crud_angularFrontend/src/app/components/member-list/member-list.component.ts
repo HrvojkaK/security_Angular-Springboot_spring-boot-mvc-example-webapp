@@ -21,7 +21,6 @@ export class MemberListComponent implements OnInit {
     this.memberService.deleteMember(id).subscribe((response) => {
       console.log(response);
       this.memberService.getMembersList().subscribe((response:any) => {this.members=response;});
-     //window.location.reload(); //dirty 
     });
 
   }

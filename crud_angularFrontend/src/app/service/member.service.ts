@@ -31,6 +31,13 @@ export class MemberService {
   deleteMember(id:number){
     return this.http.delete(this.baseUrl+"/"+id);
   }
-  
+
+  //****
+  checkPassword(id:number, password:string){
+    let tm:string = "_"
+    let passConcat:string = id+tm+password
+    return this.http.get(this.baseUrl+"/checkPassword/"+passConcat, { responseType: 'text' });
+  }
+  //*
 
 }

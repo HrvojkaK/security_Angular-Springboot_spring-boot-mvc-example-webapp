@@ -16,7 +16,6 @@
             <td>{{mem.email}}</td>
 
             <td>
-                <!--    routerLink pokazuje na /login sad, ne vise /update-member   -->
                 <button class="btn btn-primary btn-sm me-1" [routerLink]="['/login',mem.id]">log in to update</button>
                 <button class="btn btn-danger btn-sm" (click)="deleteMember(mem.id)">delete</button>
             </td>
