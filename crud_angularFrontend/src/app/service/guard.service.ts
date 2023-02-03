@@ -7,16 +7,15 @@ import { AuthenticationService } from './authentication.service';
 })
 export class GuardService implements CanActivate {
 
-  constructor(private router: Router,
-    private authService: AuthenticationService) { }
+  constructor(private router: Router, private authService: AuthenticationService) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (this.authService.isUserLoggedIn())
+    if (this.authService.isUserLoggedIn()){
       return true;
-
+    }else{
     this.router.navigate(['/member-list']);
     return false;
-
+    }
   }
 
 }

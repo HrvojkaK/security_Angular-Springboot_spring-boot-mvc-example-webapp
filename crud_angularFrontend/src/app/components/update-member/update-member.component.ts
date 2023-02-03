@@ -27,7 +27,7 @@ export class UpdateMemberComponent implements OnInit {
     } //else:
     this.memberService.updateMember(this.member).subscribe((response)=>{
       console.log(response);
-      this.router.navigate(['/member-list']);
+      this.router.navigate(['/logout']);
     });
   }
 

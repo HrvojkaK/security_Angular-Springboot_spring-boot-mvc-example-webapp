@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Member } from 'src/app/model/member';
+import { AuthenticationService } from 'src/app/service/authentication.service';
 import { MemberService } from 'src/app/service/member.service';
 
 @Component({
@@ -11,7 +12,8 @@ export class MemberListComponent implements OnInit {
 
   members!:Member[];
 
-  constructor(private memberService:MemberService){}
+  constructor(private memberService:MemberService,
+    private authService: AuthenticationService){}
 
   ngOnInit(){
     this.memberService.getMembersList().subscribe((response:any) => {this.members=response;});
@@ -23,5 +25,11 @@ export class MemberListComponent implements OnInit {
       this.memberService.getMembersList().subscribe((response:any) => {this.members=response;});
     });
 
+  }
+
+
+  isLogged(){
+    if (this.authService.isUserLoggedIn()) return true;
+    return false;
   }
 }  
