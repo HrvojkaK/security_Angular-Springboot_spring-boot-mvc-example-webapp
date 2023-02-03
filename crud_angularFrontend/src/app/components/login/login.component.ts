@@ -12,28 +12,18 @@ import { MemberService } from 'src/app/service/member.service';
 export class LoginComponent implements OnInit {
 
   password = '';
-//  invalidLogin = false;
-  id!:number; ///
+  id!:number; 
 
-  constructor(private router: Router, private actRoute:ActivatedRoute, ///actRoute!
+  constructor(private router: Router, private actRoute:ActivatedRoute, 
     private authenticationService: AuthenticationService,
     private memberService: MemberService) { }
 
 
   ngOnInit() {
-    this.id = this.actRoute.snapshot.params['id']; ///
+    this.id = this.actRoute.snapshot.params['id']; 
   }
 
   checkLogin() {
-//  if (this.authenticationService.authenticate(this.id, this.password) 
-//  ) {
-//    this.router.navigate(['/update-member', this.id]) ///
-//    this.invalidLogin = false
-//  } else
-//    this.router.navigate(['/member-list'])
-//    this.invalidLogin = true
-//}
-
     this.authenticationService.authenticate(this.id,this.password);
   }
 

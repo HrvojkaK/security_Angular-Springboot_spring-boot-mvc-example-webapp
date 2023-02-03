@@ -13,17 +13,8 @@ export class AuthenticationService {
   respFromBack!:String;
   
 
-  authenticate(id:number, password:string) {//id:number, password:string) { 
-//    this.memberService.checkPassword(id, password).subscribe((response:any)=>{ this.respFromBack=response; console.log(response); });
-//    if (this.respFromBack === "correct") { //
-//      localStorage.setItem('id', String(id)) //key,value pairs must be strings //sessionStorage is just for tab, local for browser  
-//      return true;
-//    } else {
-//      return false;
-//    }
-
-    console.log("*******");
-
+  authenticate(id:number, password:string) {
+    
     this.memberService.checkPassword(id, password).subscribe((response:any)=>{ this.respFromBack=response; 
       console.log(response); 
 
@@ -33,7 +24,7 @@ export class AuthenticationService {
         this.router.navigate(['/update-member', id])
       } else {
         console.log(response)
-        this.router.navigate(['/logout']);//(['/member-list'])
+        this.router.navigate(['/logout']); //just dump the member back to member-list page if username incorrect
       }
     });
 

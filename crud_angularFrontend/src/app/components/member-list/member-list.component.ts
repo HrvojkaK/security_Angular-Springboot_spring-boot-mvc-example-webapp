@@ -28,7 +28,7 @@ export class MemberListComponent implements OnInit {
   }
 
 
-  isLogged(){
+  isLogged(){ //this is just to hide 'add member' when some member is logged in
     if (this.authService.isUserLoggedIn()) return true;
     return false;
   }
